@@ -9,7 +9,7 @@ function openPopup(playerId) {
 async function updatePlayerList() {
 
 // ✅ Récupère playerData depuis GitHub RAW
-let playerData = await fetch("https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/twitchv2", { cache: "no-store" })
+let playerData = await fetch("https://raw.githubusercontent.com/pommecakeVT/BRDATABASE/refs/heads/main/twitchv2", { cache: "no-store" })
 .then(r => r.json());
 
 const clientId = "gp762nuuoqcoxypju8c569th9wz7q5";
@@ -104,7 +104,7 @@ setInterval(updatePlayerList, 60000);
 
 const clientId = 'gp762nuuoqcoxypju8c569th9wz7q5'; // Remplace avec ton vrai Client ID
 const accessToken = '79v1l8ku6pve2me1o9ggjpjorozzcl'; // Remplace avec ton vrai OAuth Token
-const PLAYERDATA_URL = "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/twitchv2";
+const PLAYERDATA_URL = "https://raw.githubusercontent.com/pommecakeVT/BRDATABASE/refs/heads/main/twitchv2";
 
 // ✅ Cache global
 let cachedPlayerData = [];
@@ -253,11 +253,11 @@ setInterval(checkLiveStatus, REFRESH_TWITCH_MS);
 })();
 // ✅ URLs des BDD réseaux (RAW GitHub)
 const SOCIAL_URLS = {
-bluesky: "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/bluesky",
-instagram: "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/instagram",
-tiktok: "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/tiktok",
-twitter: "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/twitter",
-youtube: "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/youtube"
+bluesky: "https://raw.githubusercontent.com/pommecakeVT/BRDATABASE/refs/heads/main/bluesky",
+instagram: "https://raw.githubusercontent.com/pommecakeVT/BRDATABASE/refs/heads/main/instagram",
+tiktok: "https://raw.githubusercontent.com/pommecakeVT/BRDATABASE/refs/heads/main/tiktok",
+twitter: "https://raw.githubusercontent.com/pommecakeVT/BRDATABASE/refs/heads/main/twitter",
+youtube: "https://raw.githubusercontent.com/pommecakeVT/BRDATABASE/refs/heads/main/youtube"
 };
 
 // ✅ Cache global (évite 5 fetch à chaque ouverture)
@@ -321,7 +321,7 @@ window.openPopup = async function(playerId) {
 console.log(`Ouverture du pop-up pour ${playerId}`);
 
 // ⚠️ playerData vient maintenant du RAW GitHub (comme ton script avatars)
-const playerDataUrl = "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/twitchv2";
+const playerDataUrl = "https://raw.githubusercontent.com/pommecakeVT/BRDATABASE/refs/heads/main/twitchv2";
 
 let playerData = [];
 try {
