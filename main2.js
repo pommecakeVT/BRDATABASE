@@ -1,5 +1,3 @@
-
-<script>
 async function updatePlayerList() {
 
 // ✅ Récupère playerData depuis GitHub RAW
@@ -110,12 +108,8 @@ return;
 }
 }
 }
-</script>
-<script>
 const clientId = 'gp762nuuoqcoxypju8c569th9wz7q5'; // Remplace avec ton vrai Client ID
 const accessToken = '79v1l8ku6pve2me1o9ggjpjorozzcl'; // Remplace avec ton vrai OAuth Token
-</script>
-<script>
 const PLAYERDATA_URL = "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/twitchv2";
 
 // ✅ Cache global
@@ -263,8 +257,6 @@ await loadPlayerData(true); // force au chargement
 await checkLiveStatus();
 setInterval(checkLiveStatus, REFRESH_TWITCH_MS);
 })();
-</script>
-<script>
 document.addEventListener("DOMContentLoaded", function () {
 
 // ✅ URLs des BDD réseaux (RAW GitHub)
@@ -409,8 +401,6 @@ document.getElementById("popup-chat").src = "";
 };
 
 });
-</script>
-<script>
 function animateNumber(element, newValue, duration = 800) {
 if (!element) return;
 
@@ -434,4 +424,3 @@ if (progress < 1) requestAnimationFrame(update);
 
 requestAnimationFrame(update);
 }
-</script>
