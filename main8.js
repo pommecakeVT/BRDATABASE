@@ -392,7 +392,7 @@ document.getElementById("popup-twitch").src = "";
 document.getElementById("popup-chat").src = "";
 };
 
-);
+;
 function animateNumber(element, newValue, duration = 800) {
 if (!element) return;
 
