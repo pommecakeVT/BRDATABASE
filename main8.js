@@ -1,3 +1,11 @@
+// ✅ Wrapper Carrd-safe : le clic marche même si window.openPopup n'est pas encore chargé
+function openPopup(playerId) {
+  if (typeof window.openPopup === "function") {
+    return window.openPopup(playerId);
+  }
+  console.warn("⚠️ Popup pas encore chargée (window.openPopup). Réessaie dans 1s.");
+}
+
 async function updatePlayerList() {
 
 // ✅ Récupère playerData depuis GitHub RAW
@@ -76,7 +84,7 @@ const playerHTML =
 '<div class="player-avatar-container">' +
 '<img id="' + player.id + '" class="player-avatar ' + (player.isLive ? 'online' : 'offline') + '"' +
 ' src="' + avatarURL + '"' +
-' onclick="window.openPopup(\'' + player.id + '\')" />' +
+' onclick="openPopup(\'' + player.id + '\')" />' +
 '</div>' +
 '<p class="player-name">' + player.twitch + '</p>' +
 '</div>';
@@ -243,8 +251,6 @@ await loadPlayerData(true); // force au chargement
 await checkLiveStatus();
 setInterval(checkLiveStatus, REFRESH_TWITCH_MS);
 })();
-document.addEventListener("DOMContentLoaded", function () {
-
 // ✅ URLs des BDD réseaux (RAW GitHub)
 const SOCIAL_URLS = {
 bluesky: "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/bluesky",
@@ -386,7 +392,7 @@ document.getElementById("popup-twitch").src = "";
 document.getElementById("popup-chat").src = "";
 };
 
-});
+);
 function animateNumber(element, newValue, duration = 800) {
 if (!element) return;
 
