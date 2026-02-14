@@ -90,24 +90,7 @@ window.__playerDataCache = playerData;
 console.log("✅ Mise à jour des joueurs terminée !");
 }
 
-// ✅ Init
-updatePlayerList();
-setInterval(updatePlayerList, 60000);
 
-// ✅ Pop-up statut (mini)
-function openPopup(playerId) {
-const cached = window.__playerDataCache;
-if (cached && Array.isArray(cached)) {
-const player = cached.find(p => p.id === playerId);
-if (player) {
-const box = document.getElementById("popup-accidantey");
-const status = document.getElementById("popup-status");
-if (box) box.classList.add("active");
-if (status) status.innerText = player.isLive ? "🎥 En live sur " + player.game : "🔴 Hors ligne";
-return;
-}
-}
-}
 const clientId = 'gp762nuuoqcoxypju8c569th9wz7q5'; // Remplace avec ton vrai Client ID
 const accessToken = '79v1l8ku6pve2me1o9ggjpjorozzcl'; // Remplace avec ton vrai OAuth Token
 const PLAYERDATA_URL = "https://raw.githubusercontent.com/UlriLeVrai/BRDATABASE/refs/heads/main/twitchv2";
