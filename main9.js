@@ -416,3 +416,57 @@ if (progress < 1) requestAnimationFrame(update);
 
 requestAnimationFrame(update);
 }
+
+(function () {
+const btns = Array.from(document.querySelectorAll('.carrd-btn'));
+
+function setActiveById(id) {
+btns.forEach(b => b.classList.toggle('is-active', b.dataset.target === id));
+}
+
+// Détermine la section à partir du hash (#home, #lives, #forms)
+function getHashId() {
+const h = (window.location.hash || '#home').replace('#', '').trim();
+return h || 'home';
+}
+
+// Actif au chargement + quand le hash change
+function syncFromHash() {
+setActiveById(getHashId());
+}
+window.addEventListener('hashchange', syncFromHash);
+syncFromHash();
+
+// Bonus: si tu scrolles (et pas seulement via clic), on met à jour l'actif
+// Il faut que tes sections existent bien: #home, #lives, #forms
+const targets = ['home', 'lives', 'forms']
+.map(id => document.getElementById(id))
+.filter(Boolean);
+
+if (targets.length) {
+const io = new IntersectionObserver((entries) => {
+// on prend la section la plus visible
+const visible = entries
+.filter(e => e.isIntersecting)
+.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+if (visible && visible.target && visible.target.id) {
+setActiveById(visible.target.id);
+}
+}, { threshold: [0.35, 0.5, 0.65] });
+
+targets.forEach(el => io.observe(el));
+}
+
+// Scroll doux au clic (au cas où Carrd ne le fait pas)
+btns.forEach(b => {
+b.addEventListener('click', (e) => {
+const id = b.dataset.target;
+const el = document.getElementById(id);
+if (!el) return; // si Carrd gère déjà le scroll
+e.preventDefault();
+history.pushState(null, '', '#' + id);
+el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+setActiveById(id);
+});
+});
+})();
