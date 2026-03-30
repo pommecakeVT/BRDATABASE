@@ -56,8 +56,8 @@ player.game = "Hors ligne";
 // ✅ Tri
 playerData.sort((a, b) => {
 if (a.isLive && b.isLive) {
-if (a.game.toLowerCase().includes("redemption") && !b.game.toLowerCase().includes("redemption")) return -1;
-if (!a.game.toLowerCase().includes("redemption") && b.game.toLowerCase().includes("redemption")) return 1;
+if (a.game.toLowerCase().includes("redemption II") && !b.game.toLowerCase().includes("redemption II")) return -1;
+if (!a.game.toLowerCase().includes("redemption II") && b.game.toLowerCase().includes("redemption II")) return 1;
 }
 if (a.isLive && !b.isLive) return -1;
 if (!a.isLive && b.isLive) return 1;
